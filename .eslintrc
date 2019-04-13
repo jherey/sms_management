@@ -20,6 +20,7 @@
 		"curly": ["error", "multi-line"],
 		"object-curly-newline": 0,
 		"no-underscore-dangle": 0,
+		"import/no-useless-path-segments": "off",
 		"import/no-unresolved": [ 2, { "commonjs": true } ],
 		"no-shadow": [ "error", {"allow": [ "req", "res", "err" ]} ],
 		"valid-jsdoc": [
