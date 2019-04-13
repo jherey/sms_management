@@ -1,6 +1,6 @@
 # SMS MANAGEMENT
 
-This API creates an SMS management API using Node.js that models the following abstractions:
+This API creates an SMS Management API using Node.js.
 
 ## Overview
 
