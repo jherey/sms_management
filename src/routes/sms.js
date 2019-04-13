@@ -2,8 +2,12 @@ import { Router } from 'express';
 import SmsController from '../controllers/SmsController';
 import validContact from '../middlewares/validContact';
 import verifyUserInputs from '../middlewares/verifyUserInputs';
+import verifyToken from '../middlewares/verifyToken';
 
 const router = Router();
+
+// middleware for authentication
+router.use(verifyToken);
 
 router.post('/:contactId',
   verifyUserInputs.createSmsRequestBody,

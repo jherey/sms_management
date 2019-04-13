@@ -1,5 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import mongoosePaginate from 'mongoose-paginate';
+import jwt from 'jsonwebtoken';
 
 const contactSchema = new Schema({
   name: {
@@ -17,6 +18,13 @@ const contactSchema = new Schema({
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
+
+contactSchema.methods.generateToken = function generateToken(type, payload) {
+  payload.type = type;
+  return jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: process.env.TOKEN_EXPIRES_IN
+  });
+};
 
 // Apply plugins to contactSchema.
 contactSchema.plugin(mongoosePaginate);

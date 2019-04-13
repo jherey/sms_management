@@ -22,7 +22,9 @@ class ContactController {
       // change phone number to Number data type and assign to an options object
       const options = { name, phoneNumber: Number(phoneNumber) };
       const newContact = await BaseRepository.create(Contact, options);
-      res.status(201).json({ newContact });
+      const token = newContact.generateToken('newContact',
+        { name: newContact.name, phoneNumber: newContact.phoneNumber });
+      res.status(201).json({ newContact, token });
     } catch (error) {
       res.status(500).json(error);
     }
