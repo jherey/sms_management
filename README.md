@@ -9,6 +9,13 @@ The SMS Management system helps to send messages to a contact. Also, ensures the
 ## Project Structure
 
 The project structure follows the **MVC** (Model-View-Controller) pattern. You can think of the **JSON** representation of data returned by the API as the 'view'.
+```
+.
+├── src/
+    ├── bin
+    │   └── www.js
+    ├── app.js
+```
 
 ## Requirements
 
@@ -26,7 +33,7 @@ $ npm dev                     # For development purpose
 $ npm start                   # To run production build
 ```
 
-You should now be able to access the API via http://localhost:5600/api/
+You should now be able to access the API via http://localhost:4500/api/
 
 **NOTE:** Create a `.env` file configuration following the `.env.example`.
 

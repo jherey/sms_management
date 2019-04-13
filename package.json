@@ -4,7 +4,9 @@
   "description": "SMS Management API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && node dist/bin/www.js",
+    "build": "babel src -d dist",
+    "dev": "nodemon --watch src --delay 250ms --exec babel-node src/bin/www.js"
   },
   "author": "Jeremiah Olufayo",
   "license": "ISC",
@@ -17,7 +19,16 @@
     "babel-plugin-add-module-exports": "^1.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.17.0",
+    "eslint-plugin-import": "^2.16.0",
     "nodemon": "^1.18.11"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-validator": "^5.3.1",
+    "mongoose": "^5.5.1",
+    "morgan": "^1.9.1"
   }
 }
