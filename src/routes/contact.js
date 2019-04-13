@@ -10,4 +10,7 @@ router.post('/',
   checkContactExists,
   ContactController.createContact);
 
+router.get('/',
+  ContactController.getAllContacts);
+
 export default router;

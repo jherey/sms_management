@@ -14,6 +14,18 @@ The project structure follows the **MVC** (Model-View-Controller) pattern. You c
 ├── src/
     ├── bin
     │   └── www.js
+    ├── controllers
+    │   └── ContactController.js
+    ├── helpers
+    │   └── validationErrorHandler.js
+    ├── middlewares
+    │   └── verifyUserInputs.js
+    ├── models
+    │   └── Contact.js
+    ├── repositories
+    │   └── BaseRepository.js
+    ├── routes
+    │   └── index.js
     ├── app.js
 ```
 
@@ -58,3 +70,4 @@ You should now be able to access the API via http://localhost:4500/api/
 <table>
 <tr><th>HTTP VERB</th><th>ENDPOINTS</th><th>DESCRIPTION</th></tr>
 <tr><td>POST</td><td>/api/contacts</td><td>Creates a contact</td></tr>
+<tr><td>GET</td><td>/api/contacts</td><td>Gets all contact</td></tr>

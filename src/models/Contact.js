@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate';
 
 const contactSchema = new Schema({
   name: {
@@ -16,6 +17,9 @@ const contactSchema = new Schema({
 }, {
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 });
+
+// Apply plugins to contactSchema.
+contactSchema.plugin(mongoosePaginate);
 
 const Contact = mongoose.model('User', contactSchema);
 
