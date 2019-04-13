@@ -73,3 +73,4 @@ You should now be able to access the API via http://localhost:4500/api/
 <tr><td>GET</td><td>/api/contacts</td><td>Gets all contact</td></tr>
 <tr><td>POST</td><td>/api/sms/:contactId</td><td>Sends sms to a contact</td></tr>
 <tr><td>GET</td><td>/api/sms</td><td>Gets all sms</td></tr>
+<tr><td>GET</td><td>/api/sms/sent/:contactId</td><td>Gets all contact's sent sms</td></tr>

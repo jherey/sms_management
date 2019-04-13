@@ -13,4 +13,8 @@ router.post('/:contactId',
 router.get('/',
   SmsController.getAllSms);
 
+router.get('/sent/:contactId',
+  validContact,
+  SmsController.sentSms);
+
 export default router;

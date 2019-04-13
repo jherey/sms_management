@@ -57,6 +57,24 @@ class SmsController {
       res.status(500).json(error);
     }
   }
+
+  /**
+   *@description Get all sms
+   *@param  {Object} req - Request sent to the router
+   *@param  {object} res - Response sent from the controller
+   *@returns {object} - status code, message and the new contact created
+   *@memberof ContactController
+   */
+  static async sentSms(req, res) {
+    try {
+      const { contactId } = req.params;
+      const query = { contact: contactId, status: 'Sent' };
+      const sentSms = await BaseRepository.findAndPopulate(Status, query, 'sms');
+      res.status(200).json({ sentSms });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
 }
 
 export default SmsController;

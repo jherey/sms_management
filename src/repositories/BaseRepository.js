@@ -94,6 +94,22 @@ class BaseRepository {
       throw error;
     }
   }
+
+  /**
+   * @description Fetch documents and populate
+   * @param {object} Model
+   * @param {object} query
+   * @param {string} populateField
+   * @returns {Document} Resolves to array of documents.
+   */
+  static async findAndPopulate(Model, query, populateField) {
+    try {
+      const documents = await Model.find(query).populate(populateField).exec();
+      return documents;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default BaseRepository;
