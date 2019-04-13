@@ -38,6 +38,25 @@ class SmsController {
       res.status(500).json(error);
     }
   }
+
+  /**
+   *@description Get all sms
+   *@param  {Object} req - Request sent to the router
+   *@param  {object} res - Response sent from the controller
+   *@returns {object} - status code, message and the new contact created
+   *@memberof ContactController
+   */
+  static async getAllSms(req, res) {
+    try {
+      // set pagination parameters
+      const { limit = 20, page = 1 } = req.query;
+      const options = { limit: Number(limit), page };
+      const sms = await BaseRepository.findAll(Sms, {}, options);
+      res.status(200).json({ sms });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
 }
 
 export default SmsController;

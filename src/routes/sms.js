@@ -10,4 +10,7 @@ router.post('/:contactId',
   validContact,
   SmsController.sendSms);
 
+router.get('/',
+  SmsController.getAllSms);
+
 export default router;

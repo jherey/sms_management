@@ -27,7 +27,7 @@ class ContactController {
   }
 
   /**
-   *@description Creates a new contact
+   *@description Get all contacts
    *@param  {Object} req - Request sent to the router
    *@param  {object} res - Response sent from the controller
    *@returns {object} - status code, message and the new contact created
