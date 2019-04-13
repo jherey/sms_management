@@ -21,6 +21,6 @@ const contactSchema = new Schema({
 // Apply plugins to contactSchema.
 contactSchema.plugin(mongoosePaginate);
 
-const Contact = mongoose.model('User', contactSchema);
+const Contact = mongoose.model('contact', contactSchema);
 
 export default Contact;
