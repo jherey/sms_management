@@ -85,11 +85,25 @@ class BaseRepository {
    * @description Delete a document by id
    * @param {object} Model
    * @param {number} id
-   * @returns {Document} Updated document
+   * @returns {void}
    */
-  static async delete(Model, id) {
+  static async deleteOne(Model, id) {
     try {
       await Model.deleteOne({ _id: id });
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  /**
+   * @description Delete a document by id
+   * @param {object} Model
+   * @param {object} query
+   * @returns {void}
+   */
+  static async deleteMany(Model, query) {
+    try {
+      await Model.deleteMany(query);
     } catch (error) {
       throw error;
     }
