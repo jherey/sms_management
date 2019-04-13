@@ -10,7 +10,6 @@ The SMS Management system helps to send messages to a contact. Also, ensures the
 
 The project structure follows the **MVC** (Model-View-Controller) pattern. You can think of the **JSON** representation of data returned by the API as the 'view'.
 ```
-.
 ├── src/
     ├── bin
     │   └── www.js
@@ -74,3 +73,4 @@ You should now be able to access the API via http://localhost:4500/api/
 <tr><td>POST</td><td>/api/sms/:contactId</td><td>Sends sms to a contact</td></tr>
 <tr><td>GET</td><td>/api/sms</td><td>Gets all sms</td></tr>
 <tr><td>GET</td><td>/api/sms/sent/:contactId</td><td>Gets all contact's sent sms</td></tr>
+<tr><td>GET</td><td>/api/sms/received/:contactId</td><td>Gets all contact's received sms</td></tr>

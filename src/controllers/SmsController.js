@@ -43,8 +43,8 @@ class SmsController {
    *@description Get all sms
    *@param  {Object} req - Request sent to the router
    *@param  {object} res - Response sent from the controller
-   *@returns {object} - status code, message and the new contact created
-   *@memberof ContactController
+   *@returns {object} - status code, message and paginated sms result
+   *@memberof SmsController
    */
   static async getAllSms(req, res) {
     try {
@@ -59,18 +59,38 @@ class SmsController {
   }
 
   /**
-   *@description Get all sms
+   *@description Get all contact's sent sms
    *@param  {Object} req - Request sent to the router
    *@param  {object} res - Response sent from the controller
-   *@returns {object} - status code, message and the new contact created
-   *@memberof ContactController
+   *@returns {object} - status code, message and the contact's sent sms
+   *@memberof SmsController
    */
   static async sentSms(req, res) {
     try {
       const { contactId } = req.params;
       const query = { contact: contactId, status: 'Sent' };
       const sentSms = await BaseRepository.findAndPopulate(Status, query, 'sms');
+      if (!sentSms.length) return res.status(404).json({ error: 'Contact\'s has not sent any sms' });
       res.status(200).json({ sentSms });
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+
+  /**
+   *@description Get all contact's received sms
+   *@param  {Object} req - Request sent to the router
+   *@param  {object} res - Response sent from the controller
+   *@returns {object} - status code, message and the contact's received sms
+   *@memberof SmsController
+   */
+  static async receivedSms(req, res) {
+    try {
+      const { contactId } = req.params;
+      const query = { contact: contactId, status: 'Received' };
+      const receivedSms = await BaseRepository.findAndPopulate(Status, query, 'sms');
+      if (!receivedSms.length) return res.status(404).json({ error: 'Contact\'s has not received any sms' });
+      res.status(200).json({ receivedSms });
     } catch (error) {
       res.status(500).json(error);
     }
